@@ -28,10 +28,11 @@ A repository for my notes on Git Version Control and Git Related Things
    - Untracked: 
       - Anything else (i.e. new file added since last commit)
 
-- __`git status`__:
+- __`git status`__
 
-- __`git add { . | -A | -All }`__:
-
-- __`git commit { . | <FILENAME> }`__:
+- __`git add { . | -A | -All }`__
 
 - __`git restore { . | <FILENAME> }`__
+
+- __`git commit -m "<COMMIT MESSAGE>"`__
+
