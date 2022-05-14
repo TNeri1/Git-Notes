@@ -1,11 +1,11 @@
 # Git-Notes
 A repository for my notes on Git Version Control and Git Related Things
 
-### Getting Started
+### GETTING STARTED
 
 * In your selected folder type `git init` to initialize folder and contents for git version control
 
-### Understanding Git Environments
+### UNDERSTANDING GIT ENVIRONMENTS
 
 -  __`git log`__
    - Lists commit hash, author, email, date, HEAD
@@ -36,3 +36,4 @@ A repository for my notes on Git Version Control and Git Related Things
 
 - __`git commit -m "<COMMIT MESSAGE>"`__
 
+### IGNORING FILES
