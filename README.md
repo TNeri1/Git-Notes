@@ -37,3 +37,15 @@ A repository for my notes on Git Version Control and Git Related Things
 - __`git commit -m "<COMMIT MESSAGE>"`__
 
 ### IGNORING FILES
+
+- __*Why Ignore Files?*__:
+   - Sensitive Info
+      - Passwords
+      - API Keys
+      - Authentication Tokens
+   - Personal Notes
+   - System Files
+
+- __Using .gitignore__:
+   - Create .gitignore file in root directory of project structure
+   - Add any file or pattern to .gitignore file
