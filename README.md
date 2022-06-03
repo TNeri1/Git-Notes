@@ -88,3 +88,17 @@ notes/
       - A git command for renaming a file (**MUCH BETTER**)
          - This renames the file and automatically stages the change ready for committing
             - If you want to **restore** then use the same command above and rename the renamed file to the original name
+
+### DIFFERENCES
+
+- `git diff`:
+   - Shows the differences between files
+   - When moving files (i.e. deleting a file and adding another file) `git diff` will show everything
+      - Use Visual Studio Code's **Source Control Editor**
+
+- `git log --oneline`:
+   - Better and simpler way to do `git log`
+   - `git diff [commit hash from git log --oneline]`
+      - Shows the differences between two commits
+         - Not as useful, would suggest using Git Lens from Visual Studio Marketplace 
+
