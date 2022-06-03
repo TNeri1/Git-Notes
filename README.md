@@ -126,3 +126,21 @@ notes/
             - **A LITTLE DANGEROUS**
             - Will delete any commits before the given hash id **AND** change all the files
                - Sometimes you want to do this to a specific commit to rewind time to a specific commit and continue from there
+
+### CHANGING HISTORY USING REBASING:
+
+- Designed to take the commits of one branch and apply them to another
+   - **HOW TO USE REBASE**:
+      - `git rebase <branch>/<commit>`
+         -
+      - `git rebase --interactive <branch>/<commit>`
+      - `git rebase -i HEAD~#`
+         - **Really useful and best wayt to use rebase!!!**
+         - Use the HEAD pointer to modify the current branch's directory
+            - Rebase by moving back to a certain number of commits
+               - *USEFUL IF YOU HAVE AN EXTREMELY LONG COMMIT HISTORY AND YOU ONLY WANT TO BACK A FEW STEPS*
+      - `git rebase -i --root`
+         - Another great way of editing branches in a text editor that displays all the branches
+      
+      - **When in text editor, simply cut the line of commit and paste in another place among the commits**
+         - You can use some commands instead of `pick` (i.e. You will see `pick [hash id]`) such as `s` (`s [hash id]`) for squashing a commit into the previous one **OR** use `f` (`f [hash id]`) for fixing up (like squash) but not using the commit message of the commit being "squashed"
