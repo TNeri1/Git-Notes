@@ -102,3 +102,27 @@ notes/
       - Shows the differences between two commits
          - Not as useful, would suggest using Git Lens from Visual Studio Marketplace 
 
+### CHANGING HISTORY
+
+- **Amending**:
+   - You can often end up committing something that's not quite right
+      - You can create a new commit **BUT** that ends up creating a messy history
+      - **TRY THIS INSTEAD TO ADD THINGS TO THE LAST COMMIT:**
+         - __`git commit -amend`__
+            - This will launch the default editor and allow you to edit the file with the amended history
+         - __`git commit -am 'New commit message'`__
+            - If you don't want to do the above explanation
+         - __`git commit -amend --no-edit`__
+            - If you just want to leave the message the same as the last commit
+
+         - __`git reset [hash from git log --oneline]`:__
+            - Let's you go back to a previous commit (like a rewind feature)
+               - It will undo some of the changes (unstage the changes)
+               - Moved back the head to another commit
+                  - Didn't do anything to the files (Did not delete, just rewinded the commit)
+               - You can then do a `git status` -> `git add .` -> `git commit -m "Commit Message"` -> `git log --oneline`
+
+         - __`git reset --hard [hash from git log --oneline]`:__
+            - **A LITTLE DANGEROUS**
+            - Will delete any commits before the given hash id **AND** change all the files
+               - Sometimes you want to do this to a specific commit to rewind time to a specific commit and continue from there
