@@ -144,3 +144,14 @@ notes/
       
       - **When in text editor, simply cut the line of commit and paste in another place among the commits**
          - You can use some commands instead of `pick` (i.e. You will see `pick [hash id]`) such as `s` (`s [hash id]`) for squashing a commit into the previous one **OR** use `f` (`f [hash id]`) for fixing up (like squash) but not using the commit message of the commit being "squashed"
+
+### BRANCHES:
+
+- **ONE OF THE MOST POWERFUL FEATURES OF GIT**
+   - Let's you create different versions of your code so you can play around with adding new features without worrying about messing up what's stable
+   - **HOW TO USE**:
+      - **LOOKING AT BRANCHES**
+         - `git branch`
+         - `* main`
+      - **COPYING A BRANCH**
+         - `git switch -c NAME`
