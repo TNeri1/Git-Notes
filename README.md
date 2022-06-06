@@ -148,7 +148,7 @@ notes/
 
 - **ONE OF THE MOST POWERFUL FEATURES OF GIT**
    : Let's you create different versions of your code so you can play around with adding new features without worrying about messing up what's stable
-   - **HOW TO USE**:
+   - **HOW TO USE:**
       - **LOOKING AT BRANCHES**
          - `git branch`
             - `* main`
@@ -166,7 +166,7 @@ notes/
          - `git branch -D NAME`
             - This forces git to ignore things and just delete the branch
 
-- **GIT FLOW**:
+- **GIT FLOW:**
    - Feature/Fix Branch
    - Make Changes
    - Merge to Master
@@ -175,3 +175,36 @@ notes/
 ### MERGE CONFLICTS:
 : Conflicts happen when you're merging two branches, but you or someone has made changes to items in the same file
 - When you merge branches or merge a branch to main you have to choose which of the changes you would like to keep.
+
+### STASH AND CLEAN:
+- **Stashing Code:**
+   : Stashing is a way of putting away code temporarily so that you can work on something else.
+      - i.e. Boss wants you to make important change but you were already working on new changes on the current branch you're in.
+         - You want to restore everything but want to not lose any of the changes you have made
+   - `git stash`
+      : Takes whatever the changes were and temporarily put them in a storage facility
+      : A quick way of undoing the work that you've done so that you can put into stashes and come back to
+   - `git stash list`
+      : Allows you to take a look at what has been stored
+   - `git stash apply`
+      : Allows you to apply a stash set of changes
+   - `git stash pop`
+      : Removes the git stash from the list
+
+- **GIT CLEAN:**
+   : Lets you remove all untracked files and directories from your branch super quickly
+   : Nice way of removing files that you don't need anymore
+   : A lot of the times when you do a git restore, because it doesn't do anything to untracked files, it will leave them there. So sometimes you need a perfectly clean folder.
+      : Be careful with it, because it can sometimes remove things you don't want it to remove, **that's why it is a good thing to do the `-n` option so you know what it's going to remove**
+   - `git clean -n`
+      - dry run 
+      - If you don't want to destroy things
+   - `git clean -d`
+      - directories
+      - subdirectories
+   - `git clean -f`
+      - force
+      - When you actually want to do a cleaning that is not a dry run
+   - **You can also combine flags:**
+      - `git clean -dn`
+      - `git clean -df`
