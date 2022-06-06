@@ -132,10 +132,9 @@ notes/
 - Designed to take the commits of one branch and apply them to another
    - **HOW TO USE REBASE**:
       - `git rebase <branch>/<commit>`
-         -
       - `git rebase --interactive <branch>/<commit>`
       - `git rebase -i HEAD~#`
-         - **Really useful and best wayt to use rebase!!!**
+         - **Really useful and best way to use rebase!!!**
          - Use the HEAD pointer to modify the current branch's directory
             - Rebase by moving back to a certain number of commits
                - *USEFUL IF YOU HAVE AN EXTREMELY LONG COMMIT HISTORY AND YOU ONLY WANT TO BACK A FEW STEPS*
@@ -148,10 +147,27 @@ notes/
 ### BRANCHES:
 
 - **ONE OF THE MOST POWERFUL FEATURES OF GIT**
-   - Let's you create different versions of your code so you can play around with adding new features without worrying about messing up what's stable
+   : Let's you create different versions of your code so you can play around with adding new features without worrying about messing up what's stable
    - **HOW TO USE**:
       - **LOOKING AT BRANCHES**
          - `git branch`
-         - `* main`
+            - `* main`
       - **COPYING A BRANCH**
          - `git switch -c NAME`
+         - **(ALT)** `git checkout -b NAME`
+      - **MERGING**
+         : Merges changes from one branch into the current branch (For example: __Meaning switch back to main branch and then execute this command with branch you want merged into main__)
+         - `git merge <branch>`
+      - **Deleting a Branch**
+         : When you're done with a feature or a fix, it's a good idea to delete the branch you no longer need.
+         - `git branch --delete NAME`
+         - `git branch -d NAME`
+            - You can use this as long as the branches are free of conflicts
+         - `git branch -D NAME`
+            - This forces git to ignore things and just delete the branch
+
+- **GIT FLOW**:
+   - Feature/Fix Branch
+   - Make Changes
+   - Merge to Master
+   - Delete Old Branch
