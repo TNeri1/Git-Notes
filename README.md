@@ -108,7 +108,7 @@ notes/
    - You can often end up committing something that's not quite right
       - You can create a new commit **BUT** that ends up creating a messy history
       - **TRY THIS INSTEAD TO ADD THINGS TO THE LAST COMMIT:**
-         - __`git commit -amend`__
+         - __`git commit --amend`__
             - This will launch the default editor and allow you to edit the file with the amended history
          - __`git commit -am 'New commit message'`__
             - If you don't want to do the above explanation
@@ -171,3 +171,7 @@ notes/
    - Make Changes
    - Merge to Master
    - Delete Old Branch
+
+### MERGE CONFLICTS:
+: Conflicts happen when you're merging two branches, but you or someone has made changes to items in the same file
+- When you merge branches or merge a branch to main you have to choose which of the changes you would like to keep.
