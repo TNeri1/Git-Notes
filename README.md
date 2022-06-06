@@ -171,3 +171,8 @@ notes/
    - Make Changes
    - Merge to Master
    - Delete Old Branch
+
+### MERGE CONFLICTS:
+: Conflicts happen when you're merging two branches, but you or someone has made changes to items in the same file
+
+- When you merge branches or merge a branch to main you have to choose which of the changes you would like to keep.
