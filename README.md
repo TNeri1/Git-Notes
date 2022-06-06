@@ -174,8 +174,4 @@ notes/
 
 ### MERGE CONFLICTS:
 : Conflicts happen when you're merging two branches, but you or someone has made changes to items in the same file
-<<<<<<< HEAD
-=======
-
->>>>>>> b87b53042830ac0ee920e5f7dd10287b7e4588d2
 - When you merge branches or merge a branch to main you have to choose which of the changes you would like to keep.
