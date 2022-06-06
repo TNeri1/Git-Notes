@@ -208,3 +208,18 @@ notes/
    - **You can also combine flags:**
       - `git clean -dn`
       - `git clean -df`
+
+### GITHUB:
+
+- **REMOTES:**
+   - `git remote add NAME URL`
+   - `git remote remove NAME`
+   - `git rename OLDNAME NEWNAME`
+   - `git remote -v`
+
+- **GIT PUSH:**
+   - `git push REMOTE BRANCH`
+   - `# git push --set-upstream-to origin main`
+   - `git push -u origin main # --set-upstream`
+   - `# git push --all`
+   - `# git branch --set-upstream-to <origin/remote-branch>`
