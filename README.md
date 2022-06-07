@@ -316,3 +316,50 @@ notes/
             # Delete remote branch, v2.8.0+
             git push -d origin new_feature
            ```
+
+- **PRUNE STALE BRANCHES**
+   - Delete all stale remote-tracking branches
+   - **Remote-tracking branches, NOT remote branches**
+   - Stale Branch:
+      - __a remote-tracking branch that no longer tracks anything because the actual branch in the remote repository has been deleted__
+   - **REMOTE BRANCHES:**
+      1. Branch on the remote repository (bugfix)
+      2. **Local snapshot of the remote branch (origin/bugfix)** __<-- This is the remote-tracking branch__ 
+         - It's what happens when we call git fetch
+            - Fetch the changes from the remote repository and sync up our tracking branch so that the same changes are there
+            - Allows us to work offline, off of the origin
+               - Even though we can't fetch or push to the remote, we still can access the contents of what was up there
+      3. Local branch, tracking the remote branch (bugfix)
+   - *Deleting local branches (3) and remote branches (1) but what about number (2)?:*
+      - Deleting a remote prune the remote-tracking branch automatically at the same time. (1) and (2) get deleted together
+      - **However, it is necessary when collaborators delete branches**
+         - EXAMPLE: If a collaborator deletes a remote branch, then your tracking branch is going to be out of sync
+      - Fetch does **NOT** automatically prune (You still have the tracking branch). It's up to you to remove it.
+         - **THIS IS THE NEED FOR PRUNING:**
+            - ```sh
+               # Delete stale remote-tracking branches
+               git remote prune origin
+
+               # Run below code after above code to see what it would do before you actually let it do it
+               git remote prune origin --dry-run
+
+               # Shortcut: prune, then fetch
+               git fetch --prune
+               git fetch -p
+
+               # Configuration to Always prune before fetch
+               # This is not the default because it destructive option.
+               git config --global fetch.prune true
+
+               # Prune all unreachable objects
+               # DO NOT USE!!!
+               git prune
+
+               # Part of garbage collection
+               git gc
+              ```
+               - **`git prune` and `git remote prune` are two totally different things**
+                  - `git prune` prunes all unreachable objects from git, **THERE IS NO NEED TO USE IT**, because it's part of the garbage collection done by git using the following:
+                     - `git gc`
+                        - Basically just says clean up my git repository and throw all the stuff that's not being used.
+                        - All those temporary objects not being used anymore can be trashed.
