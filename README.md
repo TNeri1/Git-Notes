@@ -235,3 +235,26 @@ notes/
       - Are for grouping issues into goals that need to be achieved
    - Projects
       - A way to take a look at the progress of your work and see how well you're accomplishing your goals
+
+# GIT INTERMEDIATE TECHNIQUES
+
+### BRANCH MANAGEMENT:
+
+- **FORCE PUSH TO A REMOTE:**
+   : **WHY**: 
+   If you find yourself in a state where you fetch additional commits from collaborators from the remote server and find that they were wrong or messed things up in a big way. So now we're going to force push instead (Ignoring the differences in the remote version and replace the remote version with my local version)
+   - Local version is better than the remote version
+   - Remote version went wrong and needs repair
+   - Versions have diverged and merging is undesirable
+   - __Use with **EXTREME CAUTION**:__
+      - Easy way to anger your whole development team
+      - Disruptive for others using the remote branch
+      - Commits disappear
+      - Subsequent commits are orphaned
+   - __HOW TO:__
+      - `git push -f`
+      - `git push --force`
+   - __AFTERMATH:__
+      - Have other collaborators do the following command:
+         - `git reset --hard <branch>`
+            - EXAMPLE: `git reset --hard origin/master`
