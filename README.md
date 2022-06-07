@@ -363,3 +363,27 @@ notes/
                      - `git gc`
                         - Basically just says clean up my git repository and throw all the stuff that's not being used.
                         - All those temporary objects not being used anymore can be trashed.
+
+### TAGGING:
+
+- **CREATE TAGS:**
+   - Tags allow marking points in history as important
+   - A named reference to a commit
+   - Most often used to mark releases (v1.0, v1.1, v2.0)
+   - Can mark key features or changes (ecommerce, redesign)
+   - Can mark points for team discussion (bug, issue 136)
+   - **TWO TYPES OF TAGS YOU CAN CREATE:**
+      - ```sh
+         # ADD LIGHTWEIGHT TAG
+         git tag issue136 655da716e7
+
+         # ADD ANNOTATED TAG (MOST COMMON)
+         git tag -a v1.1 -m "Version 1.0" dd5c49428a0
+        ```
+         - Use the second one (Annotated Tag):
+            - It gives you the ability to provide a message to go with it
+               - That message could be a simple one line message
+               - Or it can be a multi line message
+            - **`-a` option means that it should be an annotated tag**
+            - **`-m` option means to provide the message that shoudl be used for the annotation**
+            - Last two parts are the name of the tag followed by the sha of the commit we want to reference
