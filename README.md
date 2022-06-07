@@ -283,3 +283,36 @@ notes/
                   - EXAMPLE: `git branch --merged b325a7c49`
                      - Same as above two except just specifying a particular commit.
                      - We can say, if we start at this commit and work backwards in the history, how many of the other branch tips are we going to find?
+
+- **DELETE LOCAL AND REMOTE BRANCHES:**
+   : In order to delete a branch you must first make sure that you're on a different branch
+      - You can't remove a branch you're currently on (**It's like removing the ground from beneath your feet**)
+   - **HOW TO (LOCAL):**
+      - ```sh
+         # Delete branch
+         # (Must be on a different branch)
+         git branch -d new_feature
+        ```
+         - Code above deletes `new_feature` branch **PROVIDED** that the `new_feature` branch has been fully merged into the current branch.
+            - **IF NOT**, Git's going to object, and say there are commits that are over there in this branch you're about to delete that are not yet in this branch, **you might be about to make a big mistake**
+               - If you really want to delete that branch use the following:
+                  - ```sh
+                     # Delete not yet merged branch
+                     git branch -D new_feature
+                    ```
+      - **HOW TO (REMOTE):**
+         - ```sh
+            # Delete remote branch
+
+            git push origin :new_feature
+            # git push origin <local>:<remote>
+            """
+            Above code is saying push nothing up to the remote branch
+            """
+
+            # Delete remote branch v1.7.0+
+            git push --delete origin new_feature
+
+            # Delete remote branch, v2.8.0+
+            git push -d origin new_feature
+           ```
