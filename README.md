@@ -387,3 +387,25 @@ notes/
             - **`-a` option means that it should be an annotated tag**
             - **`-m` option means to provide the message that shoudl be used for the annotation**
             - Last two parts are the name of the tag followed by the sha of the commit we want to reference
+
+- **List Tags:**
+   - ```sh
+      # List tags
+      git tag
+      git tag --list
+      git tag -l
+
+      # List tags beginning with "v2"
+      git tag -l "v2*"
+
+      # List tags with annotations
+      git tag -l -n
+      git tag -ln
+
+      # Work with tags (like SHAs)
+      git show v1.1
+
+      # See all the code changes between version 1.0 and version 1.1
+      git diff v1.0..v1.1
+
+     ```
