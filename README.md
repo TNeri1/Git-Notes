@@ -388,7 +388,7 @@ notes/
             - **`-m` option means to provide the message that shoudl be used for the annotation**
             - Last two parts are the name of the tag followed by the sha of the commit we want to reference
 
-- **List Tags:**
+- **LIST TAGS:**
    - ```sh
       # List tags
       git tag
@@ -417,3 +417,30 @@ notes/
       git tag -d v1.1
      ```
       - **BE CAREFUL, ONCE YOU DELETE A TAG, IT'S PERMANENTLY GONE**
+
+- **PUSH TAGS TO A REMOTE:**
+   - Like branches, tags are local unless shared to a remote
+   - **`git push` does NOT transfer tags**
+      - This is good because sometimes you can have a bunch of tags that you don't want to share with other people, and can just be for your convenience
+   - Tags must be **EXPLICITLY** transferred
+   - **`git fetch` automatically retrieves shared tags**
+   - **HOW IT WORKS:**
+      - ```sh
+         # Push a tag to a remote server
+         git push origin v1.1
+
+         # Push all tags to a remote server
+         git push origin --tags
+
+         # Fetch commits and tags
+         git fetch
+
+         # Fetch only tags (with necessary commits)
+         git fetch --tags
+
+         # Delete remote tags like remote branches
+         git push origin :v1.1
+         git push --delete origin v1.1
+         git push -d origin v1.1
+        ```
+
