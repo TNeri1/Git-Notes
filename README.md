@@ -258,3 +258,28 @@ notes/
       - Have other collaborators do the following command:
          - `git reset --hard <branch>`
             - EXAMPLE: `git reset --hard origin/master`
+
+- **IDENTIFY MERGED BRANCHES:**
+   - List branches that have been merged into a branch
+   - Useful for knowing what features have been incorporated
+   - Useful for cleanup after merging many features
+   - __HOW TO:__
+      - `git branch --merged`
+         - Git will give a list of branches in local repository which have been merged into the current branch fully
+      - `git branch --no-merged`
+         - This will return the branches that have not yet been merged into the current branch (Or to put another way, they contain commits which have not yet been added to the current branch)
+      - `git branch -r --merged`
+         - Lists remote branches that are either merged or unmerged with the current branch
+         - __HOW IT WORKS:__
+            - Use current branch by default
+            - "Branches whose tips are reachable from the specified commit (HEAD if not specified)"
+            - Branch tip is in the history of the specified commit
+            - Can specify other branch names or commits:
+               - `git branch --merged HEAD`
+                  - EXAMPLE: `git branch --merged july_release`
+                     - Starts at the tip of july_release and work backwards down the history to see which other branches' tips show up in the history
+                  - EXAMPLE: `git branch --merged origin/july_release`
+                     - Same as above except for remote repositories
+                  - EXAMPLE: `git branch --merged b325a7c49`
+                     - Same as above two except just specifying a particular commit.
+                     - We can say, if we start at this commit and work backwards in the history, how many of the other branch tips are we going to find?
