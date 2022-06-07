@@ -444,3 +444,16 @@ notes/
          git push -d origin v1.1
         ```
 
+- **CHECKING OUT TAGS:**
+   - Tags are **NOT** branches
+      - Tags simply identify a particular commit in your history
+   - Tags can be checked out, just like any commit
+   - The right way to check out a tag is to create a branch from it
+      - ```sh
+         # Right way
+         git checkout -b new_branch v1.1
+         
+         # Also correct BUT has implications
+         git checkout v1.1
+        ```
+         - Checking out a commit puts the local repository in a "detached HEAD state"
