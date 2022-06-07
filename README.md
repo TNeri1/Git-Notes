@@ -223,3 +223,15 @@ notes/
    - `git push -u origin main # --set-upstream`
    - `# git push --all`
    - `# git branch --set-upstream-to <origin/remote-branch>`
+
+- **MANAGING PROJECTS:**
+   - Contributors
+      - Can invite others to work along side you
+   - Issues
+      - Create notes about your proejct that can be shared and ccommented by others, usually for things you need to fix
+   - Labels
+      - A way to organize issues, that help to identify the purpose of the issue
+   - Milestones
+      - Are for grouping issues into goals that need to be achieved
+   - Projects
+      - A way to take a look at the progress of your work and see how well you're accomplishing your goals
