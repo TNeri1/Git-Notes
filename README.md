@@ -409,3 +409,11 @@ notes/
       git diff v1.0..v1.1
 
      ```
+
+- **DELETE TAGS:**
+   - ```sh
+      # Delete a tag
+      git tag --delete v1.1
+      git tag -d v1.1
+     ```
+      - **BE CAREFUL, ONCE YOU DELETE A TAG, IT'S PERMANENTLY GONE**
