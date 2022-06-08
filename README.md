@@ -499,3 +499,27 @@ notes/
    - **Help and Quit:**
       - ![](pictures/git_int_ch3-1_help_quit.png)
    - **Remember that this is INTERACTIVE STAGING. You still have to make commits. This just helps you with the staging.**
+
+- **PATCH MODE:**
+   - Allows staging portions of a changed file
+      - If there are portions to be changed, it assumes that we have multiple changes inside the same file
+      - Git is going to decide how to break up those changes into portions called:
+         - "Hunk":
+            - An area where two files differ
+         - Hunks can be staged, skipped, or split into smaller hunks
+   - **Staging Portion**
+      - ![](pictures/git_int_ch3-2_portion.png)
+
+   - **(SIDE NOTE: `git diff --cached`)**
+      - Let's you see the difference in the files that are in your staging area versus what's in HEAD
+      - ![](pictures/git_int_ch3-2_diff_cached.png)
+   - **PATCH MODE NOTE JUST IN INTERACTIVE MODE:**
+      - ```sh
+         git add --patch
+         git add -p
+
+         git stash -p
+         git reset -p
+         git checkout -p
+         git commit -p
+        ```
