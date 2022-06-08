@@ -457,3 +457,18 @@ notes/
          git checkout v1.1
         ```
          - Checking out a commit puts the local repository in a "detached HEAD state"
+         - Like being on an unnamed branch
+         - New commits will not belong to any branch
+         - Detached commits will be garbage collected (~2 weeks)
+      - **3 WAYS TO PRESERVE YOUR WORK:**
+         - ```sh
+            # Tag the commit (HEAD detached)
+            git tag temp
+
+            # (EVEN BETTER) Create a branch (HEAD detached)
+            # Downside is the HEAD is still in detached state
+            git branch temp_branch
+
+            # (BEST) Create a branch and reattach HEAD
+            git checkout -b temp_branch
+           ```
