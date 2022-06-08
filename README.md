@@ -530,3 +530,17 @@ notes/
    - Requires one or more unchanges lines between changes
    - **HOW TO:**
       - ![](pictures/git_int_ch3-3_split_hunk.png)
+
+- **EDIT A HUNK:**
+   : **WHY**
+      - The ability to add portions of a file to the staging area is a powerful feature, that can greatly improve your workflow, which can allow to make better and more **ATOMIC** commits.
+   - Can edit a hunk manually
+   - Most useful when a hunk cannot be split automatically
+   - Diff-style line prefizes: +, -, #, space
+   - **HOW TO:**
+      - e == edit manually
+         - This will open up a text file
+         - Change the prefixes and resort the lines accordingly
+      - ![](pictures/git_int_ch3-4_edit_hunk.png)
+      - ![](pictures/git_int_ch3-4_see_diffs.png)
+
