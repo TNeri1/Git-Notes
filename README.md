@@ -472,3 +472,30 @@ notes/
             # (BEST) Create a branch and reattach HEAD
             git checkout -b temp_branch
            ```
+
+- **INTERACTIVE STAGING:**
+   - Stage changes interactively
+   - Allows staging portions of changed files
+   - Helps to omake smaller, focused commits
+   - Feature of many Git GUI tools
+   - **HOW TO:**
+      - ```sh
+         git add --interactive
+
+         git add -i
+        ```
+   - **Staging:**
+      - update == add
+      - ![](pictures/git_int_ch3-1.png)
+   - **Unstaging:**
+      - revert == unstaging/checkout
+      - ![](pictures/git_int_ch3-1_unstaging.png)
+   - **Untracked Files:**
+      - a == add untracked files
+      - ![](pictures/git_int_ch3-1_adduntracked.png)
+   - **Diff:**
+      - d == diff
+      - ![](pictures/git_int_ch3-1_diff.png)
+   - **Help and Quit:**
+      - ![](pictures/git_int_ch3-1_help_quit.png)
+   - **Remember that this is INTERACTIVE STAGING. You still have to make commits. This just helps you with the staging.**
