@@ -523,3 +523,10 @@ notes/
          git checkout -p
          git commit -p
         ```
+
+- **SPLIT A HUNK:**
+   - Hunks can contain multiple changes
+   - Tell Git to try to split a hunk further
+   - Requires one or more unchanges lines between changes
+   - **HOW TO:**
+      - ![](pictures/git_int_ch3-3_split_hunk.png)
