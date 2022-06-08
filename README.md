@@ -473,7 +473,9 @@ notes/
             git checkout -b temp_branch
            ```
 
-- **INTERACTIVE STAGING:**
+### INTERACTIVE STAGING
+
+- **INTERACTIVE MODE:**
    - Stage changes interactively
    - Allows staging portions of changed files
    - Helps to omake smaller, focused commits
