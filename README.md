@@ -574,3 +574,6 @@ notes/
          - Use `--edit` or `-e` to edit the commit message
             - *By default it will use the same commit message as a convenience, but you have the opportunity to edit it, __but you have the opportunity to edit it if you want something different__*
          - **Can result in conflicts which must be resolved**
+
+- **RESOLVE CHERRY-PICKING CONFLICTS:**
+   - ![](pictures/git_int_ch4-2_resolve_cherrypick_conflicts.png)
