@@ -665,3 +665,21 @@ notes/
          - File ending should be called `.patch` 
             - That's the name you would normall give to the files that would be inside the directory they would create
       - ![](pictures/git_int_ch4-5_formatted_patches.png)
+
+- **APPLY FORMATTED PATCHES:**
+   - Extract author, commit message, and changes from a mailbox message and apply them to the current branch
+   - Similar to cherry-picking: same changes, different SHAs
+      - The biggest difference between a formatted patch and a diff patch is that the **COMMIT HISTORY IS TRANSFERRED**
+   - **HOW TO:**
+      - ```sh
+         # Apply single patch
+         git am feature/0001-some-name.patch
+
+         # Apply all patches in a directory
+         git am feature/*.patch
+        ```
+         - `am` is short for "apply mailbox" or "apply mailbox formatted patch"
+   - ![](pictures/git_int_ch4-6_apply_formatted_patches.png)
+   - **Formatted patches are more useful most of the time**
+      - Diff patches can serve a purpose, if we don't want to actually give someone the commits, we just want to give them a set of changes, then diff patches is the way to go
+      - If you're tryingt to give someone the commits (in the same way you would if you were cherry-picking) then go with the formatted patch instead
