@@ -683,3 +683,55 @@ notes/
    - **Formatted patches are more useful most of the time**
       - Diff patches can serve a purpose, if we don't want to actually give someone the commits, we just want to give them a set of changes, then diff patches is the way to go
       - If you're tryingt to give someone the commits (in the same way you would if you were cherry-picking) then go with the formatted patch instead
+
+### REBASING
+
+- **REBASE COMMITS:**
+   - Take commmits from a branch and replay them at the end of another branch
+   - Useful to integrate recent commits without merging
+   - Maintains a cleaner, more linear project history
+   - (__IF WORKING WITH A TEAM OF DEVELOPERS__) Ensures topic branch commits apply cleanly
+      - Forces each developer to take responsibility, and make sure that there won't be unnecessary merging or merge conflicts that have to be resolved
+      - Some large teams actually require rebasing for any topic or feature branch before it can be considered for incorportion into the master branch
+   - (Scenario):
+      ![](pictures/git_int_ch5-1_pic_1.png)
+      - There's a branch called master and we've started a new topic or feature branch called new_feature.
+         - After starting your branch you have made commits and other people have been working on the master branch and new commits have been submitted to master branch
+         - Now, we want to incorporate those new commits into your new_feature branch, not just because you want to make use of them but becuase **you want to make sure that the commits that are in your new_feature branch will fit cleanly with what's there**
+            - So you do a **REBASE**
+            - **REBASE** takes the commits in your new_feature branch, and it shifts them down to the tip of the master branch
+
+      ![](pictures/git_int_ch5-1_pic_2.png)
+
+      - When git generates a SHA to identify each one of these commits, it's based not only on the change set and the metadata of that commit, but also on the parent commit as well
+         - So by moving these to the end, the SHAs that identify each of the commits will change
+            - It's the same change set, but the identifiers have changed
+      - **HOW GIT REBASES WORK (DETAILED):**
+         - Git starts rewinding the new feature branch, or picking up each one of those comits and putting them into temporary storage
+         - It keeps doing that until it gets back to a commit where it diverged from the master branch
+      ![](pictures/git_int_ch5-1_pic_3.png)
+         - Then, it moves to the tip of the master branch and it replays each one of those commits
+      ![](pictures/git_int_ch5-1_pic_4.png)
+         - So what Git is actually doing is picking up each one of those commits, one-by-one, and then replaying them at the end
+         - **You don't just have to move it to the tip of master, you can rebase to the tip of other branches as well**
+      ![](pictures/git_int_ch5-1_pic_5.png)
+   - **HOW TO:**
+      - ```sh
+         # Rebase current branch to tip of master
+
+         # The last parameter is the branch 
+         # you want to use as new base
+         git rebase master 
+
+         # Rebase new_feature to the tip of master
+         git rebase master new_feature
+
+         # Useful for visualizing branches
+         git log --graph --all --decorate --oneline
+
+         # Return commit where topic branch diverges
+         git merge-base master new_feature
+        ```
+         - *What Git's actually doing behind the scenes is it does an automatic checkout of `new_feature`, and then it does the regular rebase*
+         - **This syntax is ONLY for moving new_feature from some commit in master's history to the current tip of `master`**
+            - Rebasing to another point is covered down below in the notes
