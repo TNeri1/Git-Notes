@@ -614,3 +614,54 @@ notes/
             - Anything that conflicts,anything that keeps it from matching up exactly, is going to prevent the patch from applying cleanly
 
          - ![](pictures/git_int_ch4-4_apply_diff_patches_not_smooth.png)
+
+- **CREATE FORMATTED PATCHES:**
+   - Export each commit in UNIX mailbox format
+      - *WHY USE UNIX MAILBOX FORMAT?:*
+         - It's the standard format it uses
+         - Useful for email distribution of changes
+   - Includes commit messages
+      - And some metadata about the commit
+   - One commit per file by default
+   - **HOW TO:**
+      - ```sh
+         # Export all commits in the range
+         git format-patch 2e33d..655da
+        ```
+         - Like `git diff` but this will create individual files for each one of these commits
+         - If you leave out either one of the SHAs in the range, the it would assume that we meant the current head
+      - ```sh
+         # Export all commits on current branch
+         # which are not in master branch
+         git format-patch master
+        ```
+         - Starts with HEAD, because HEAD is implied as being the second part of the range, and it'll work its way backwards up the history until it gets to master
+            - When it gets to a commit that btoh this branch and master have, that's the point at which it'll stop
+            - Gets everything since you've diverged from master
+      - ```sh
+         # Export a single commit
+         git format-patch -1 655da
+        ```
+         - The `-1` option says we just want to target this single commit
+            - You should not think that I somehow want to go from the current HEAD all the way back until you get to commit 655da
+         - (Scenario) Imagine you're going to output something that has 20 different commits
+            - *You don't want to just create 20 different files, and you don't want to create them in your repository*
+            - **Instead you want to say where to put those files:**
+               - ```sh
+                  # Put patch files into a directory
+                  git format-patch master -o feature
+                 ```
+                  - The `-o` option tells what directory to put these files into.
+                     - If the directory doesn't exist, it'll create it
+      - ```sh
+         # Put patch files into a directory
+         git format-patch master -o feature
+
+         # Output patches as a single file
+         git format-patch 2e33d..655da --stdout > feature.patch
+        ```
+         - When you provide the `--stdout` option, it says **don't create the files like you normally would**
+            - Instead, take all of this data and just stream it out as one long string to stdout (stdout normally be the screen by default)
+         - File ending should be called `.patch` 
+            - That's the name you would normall give to the files that would be inside the directory they would create
+      - ![](pictures/git_int_ch4-5_formatted_patches.png)
