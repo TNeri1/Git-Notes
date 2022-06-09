@@ -593,3 +593,24 @@ notes/
      ```
    - ![](pictures/git_int_ch4-4_diff_p1.png)
    - ![](pictures/git_int_ch4-4_diff_p2.png)
+
+- **APPLY DIFF PATCHES:**
+   - **WHY:**
+      - (Scenario) There is branch that does not have your commits. This might be someone else's branch on the other side of town. We're going to take that file, which we've exported. We've got our diff patch and we're going to put it in on a thumb drive and take it over to their office and they're going to plug it in, or maybe we're going to email it to them and they're going to take that file and they want to apply it now to their repository.
+   - Apply changes in a diff patch file to the working directory
+   - Makes changes, but not commits
+   - No commit history transferred
+      - A diff file has not commit history in it
+      - *All you're getting is a set of changes*
+   - **HOW TO:**
+      - ```sh
+         git apply output.diff
+        ```
+      - ![](pictures/git_int_ch4-4_apply_diff_patches.png)
+      - Doesn't always work quite so smoothly
+         - **A patch can only apply if your working directory is in a state that allows it to work**
+            - It doesn't have to match everything exactly
+            - There can be plenty of files that don't conflict.
+            - Anything that conflicts,anything that keeps it from matching up exactly, is going to prevent the patch from applying cleanly
+
+         - ![](pictures/git_int_ch4-4_apply_diff_patches_not_smooth.png)
