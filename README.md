@@ -577,3 +577,19 @@ notes/
 
 - **RESOLVE CHERRY-PICKING CONFLICTS:**
    - ![](pictures/git_int_ch4-2_resolve_cherrypick_conflicts.png)
+
+- **CREATE DIFF PATCHES:**
+   - Share changes via files
+      - Instead of transferring them via a "get remote repository"
+   - **Useful when changes are not ready for a public branch**
+   - **Useful when collaborators do not share a remote**
+   - Often used during a discussion, review, approval process
+      - *The idea is just to package up changes into files and then those files can either be emailed or put into a thumb drive or something to be shared with someone else*
+   - ```sh
+      # Direct output to a file
+      echo "Hello" > temp.txt
+
+      git diff [from-commit] [to-commit] > output.diff
+     ```
+   - ![](pictures/git_int_ch4-4_diff_p1.png)
+   - ![](pictures/git_int_ch4-4_diff_p2.png)
