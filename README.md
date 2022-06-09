@@ -567,3 +567,10 @@ notes/
          # With a range of SHAs
          git cherry-pick d4e8411d09..57d290ec44
         ```
+         - You can cherry-pick commits from any branch that you have visible to you and even from things that are on the remote
+         - **CANNNOT CHERRY-PICK A MERGE COMMIT**
+            - *A merge commit is merging together two other sets of commits*
+            - *If we try to cherry-pick a merge commit then git __wouldn't__ know which one of those parents that it was joining should be brought into the current branch*
+         - Use `--edit` or `-e` to edit the commit message
+            - *By default it will use the same commit message as a convenience, but you have the opportunity to edit it, __but you have the opportunity to edit it if you want something different__*
+         - **Can result in conflicts which must be resolved**
