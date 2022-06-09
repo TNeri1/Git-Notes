@@ -546,3 +546,24 @@ notes/
       - ![](pictures/git_int_ch3-4_edit_hunk.png)
       - ![](pictures/git_int_ch3-4_see_diffs.png)
 
+### SHARE SELECT CHANGES
+
+- **CHERRY-PICKING COMMITS:**
+   : **WHY**
+      - Imagine you have a branch, master, that has six commits on it, and at some point you started a new feature branch (third commit in master) that comes off one of those commits. But you like some code in the fifth commit in master and want to bring it in your new branch without merging because you don't want the other commits. 
+      - You just want to grab one little bit of code that's in that one commit and bring it in to your feature branch
+         - **Cherry-picking solves this: Allows you to reach in and grab one commit and apply its change sets to your new feature branch**
+            - The results is a new commit with those same changes
+            - They'll have identical changes between them even though they have different SHAs that reference them
+   - Apply the changes from one or more existing commits
+   - Each existing commit is recorded as a new commit on the current branch
+   - Conceptually similar to copy-paste
+   - New commits have different SHAs
+   - **HOW TO:**
+      - ```sh
+         # With one SHA
+         git cherry-pick d4e8411d09
+
+         # With a range of SHAs
+         git cherry-pick d4e8411d09..57d290ec44
+        ```
