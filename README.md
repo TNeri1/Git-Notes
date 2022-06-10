@@ -943,3 +943,29 @@ notes/
         ```
       - Refer to link **VERY IMPORTANT**:
       [Link to video](https://www.linkedin.com/learning/git-intermediate-techniques/pull-rebase?autoplay=true&resume=false&u=0)
+
+### TRACK DOWN PROBLEMS:
+
+- **LOG OPTIONS:**
+   - Log is the primary interface to Git
+      - *Git's job is to keep track of changes over time, and the log list those changes over time*
+   - Log has many options:
+      - Sorting
+      - Filtering
+      - Output formatting
+   - **`git help log`**
+      - *It is encouraged to spend time looking at `git help log` to see what all the options are*
+      - **Becoming proficient with the log is one of the best investments you can make in learning git. It can help you to understand changes over time, and it can help you to track down problems FASTER**
+   - **TWO OPTIONS THAT CAN HELP:**
+      - ```sh
+         # List commits as patches (diffs)
+         # Not only lists your commits, but 
+         # include the diffs to show what changed
+         # in each one of those commits
+         git log -p
+         git log --patch
+
+         # List edits to lines 100-150 in filename.txt
+         git log -L 100,150:filename.txt
+        ```
+      - [Link to video](https://www.linkedin.com/learning/git-intermediate-techniques/log-options?autoplay=true&resume=false&u=0)
