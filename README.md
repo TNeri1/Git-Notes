@@ -774,3 +774,28 @@ notes/
       - **REBASE** to move commits from one branch to another
          - *How to do that will be covered later*
       - **MERGE** anytime the topic branch is already public and being used by others (**THE GOLDEN RULE OF REBASING**)
+
+- **RESOLVE REBASE CONFLICTS:**
+   - Rebasing creates new commits on existing code
+   - May conflict with existing code
+   - Git pauses rebase before each conflicting commit
+   - Similar to resolving merge conflicts
+   - **HOW TO:**
+      - ```sh
+         # Says I resolved this commit, next!
+         git rebase --continue
+
+         # Throw out current commit, keep goin!
+         # Use this most often when underlying 
+         # code already contains the change
+         # that's in your conflicting commit
+         # and you'd like to use the existing 
+         # one instead of yours
+         git rebase --skip
+
+         # Stop the rebase altogether
+         # Code will be just like it was before
+         # you did the rebase
+         git rebase --abort
+        ```
+   ![](pictures/git_int_ch5-4_pic_1.png)
