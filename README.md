@@ -736,3 +736,41 @@ notes/
          - **This syntax is ONLY for moving new_feature from some commit in master's history to the current tip of `master`**
             - Rebasing to another point is covered down below in the notes
    - ![](pictures/git_int_ch5-2_pic_1.png)
+
+- **MERGING VS REBASING:**
+   - Two ways to incorporate changes from one branch into another branch
+   - Similar results, but the means are different
+   
+   ![](pictures/git_int_ch5-3_pic_1.png)
+   ![](pictures/git_int_ch5-3_pic_2.png) 
+   - **(TOP HALF OF PICTURE)** If you want to incorporate the recent changes in the master branch into the new feature branch you could merge them in. And you would do that by creating a merge commit that woudl then link those commits into the current branch
+   - **(BOTTOM HALF OF PICTURE)** If you instead perform a rebase, you would essentially taking the commits that are in the new feature branch and shifting them to the tip of the master branch so that those recent commits in master were now available to you. *Remember also though, that when you replay these commits at the tip of the branch, it's actually going to change the SHAs of those commits at the same time. It's actually recommitting them for you. The fact that it changes the SHAs and some metadata is super important*
+
+   - **MERGING:**
+      - Adds a merge commit
+      - Nondestructive
+      - Complete record of what happened and when it happened
+      - Easy to undo (*Just do a hard reset to undo the merge*)
+      - (**DOWNSIDE**) Logs can become cluttered, non-linear
+         - (EXAMPLE): If you author a topic branch and then wait a whole month to merge it in. The merge commit that merged it in will be one month later in the log than those original commits.
+   - **REBASING:**
+      - No additional merge commit
+      - **Destructive**: SHA changes, commits are rewritten (*Not such a big deal if it happens cleanly, __BUT__ become a bigger deal if there are conflicts in the process*)
+      - No longer have a complete record of what happened and when
+      - Tricky to undo
+      - (**BENEFITS**) Logs are cleaner, more linear
+   - **THE GOLDEN RULE OF REBASING:**
+      - **THOU SHALT NOT REBASE A PUBLIC BRANCH**
+         - Rebase abandons existing, shared commits and creates new, similar commits instead
+         - Collaborators would see the project history vanish
+         - Getting all collaborators back in sync can be a nightmare
+         - **REBASING SHOULD BE USED ON YOUR LOCAL, PRIVATE BRANCHES OR BRANCHES THAT YOU USE EXCLUSIVELY; NOT BRANCHES THAT OTHERS ARE USING**
+   - **HOW TO CHOOSE?**
+      - **MERGE** to allow commits to stand out or to be clearly grouped
+      - **MERGE** to bring large topic branches back into master
+         - *The merge is a significant event and you want to have it clearly indicated in the history that you merged topic branch into master*
+      - **REBASE** to add minor commits in master to a topic branch
+         - *So that you can make sure that your topic branch still works well with what's going on in the master branch*
+      - **REBASE** to move commits from one branch to another
+         - *How to do that will be covered later*
+      - **MERGE** anytime the topic branch is already public and being used by others (**THE GOLDEN RULE OF REBASING**)
