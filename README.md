@@ -969,3 +969,35 @@ notes/
          git log -L 100,150:filename.txt
         ```
       - [Link to video](https://www.linkedin.com/learning/git-intermediate-techniques/log-options?autoplay=true&resume=false&u=0)
+
+- **BLAME:**
+   - Allows you to browse an annotated version of the file
+   - Allows you to determine who changed which lines in the file and why
+      - *In other words: "Who wrote this code?" or "Who should I blame?"*
+   - Useful for probing the history behind a file's contents
+   - __Useful for identifying which commit introduced a bug__
+   - **HOW TO:**
+      - ```sh
+         # Annotate file with commit details
+         git blame filename.txt
+
+         # Ignore whitespace
+         git blame -w filename.txt
+
+         # Annotate lines 100-150
+         git blame -L 100,150 filename.txt
+
+         # Annotate lines 100-105
+         git blame -L 100,+5 filename.txt
+
+         # Annotate file at revision d9dba0
+         git blame d9dba0 filename.txt
+         git blame d9dba0 -- filename.txt
+
+         # Add a global alias for "praise"
+         git config --global alias.praise blame
+
+         # Similar to blame, different output format
+         git annotate filename.txt
+        ```
+      - [Link to video](https://www.linkedin.com/learning/git-intermediate-techniques/blame?autoplay=true&resume=false&u=0)
