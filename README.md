@@ -817,3 +817,24 @@ notes/
    ![](pictures/git_int_ch5-5_pic_2.png)
    - Rebasing showing both rebasing expenses to master and back to original placement
    ![](pictures/git_int_ch5-5_pic_4.png)
+
+- **UNDO A REBASE:**
+   - Can undo simple rebases
+   - Rebase is a destructive process
+   - SHAs, commit messages, change sets, and more are changed or altered
+   - Undoing complex rebases may lose data
+   - **HOW TO:**
+      - ```sh
+         # Undo, unless ORIG_HEAD has changed again
+         # (rebase, reset, merge change ORIG_HEAD)
+         git reset --hard ORIG_HEAD
+
+         # Another Possibility if above doesn't work
+         # Undo by rebasing to former merge-base SHA
+         git rebase --onto 9291f0c88 master new_feature
+        ```
+         - Use a temporary variable which Git calls `ORIG_HEAD` (short for original head). It works a lot like the regular HEAD variable but it's used by Git to keep track of where things were when it's doing a rebase, a reset, or a merge. *(This allows us to abort out of those options and Git knows where to take us back).* __We can make use of this value PROVIDED that is hasn't changed again.__
+   - Undoing a rebase based off first line of code above
+   ![](pictures/git_int_ch5-6_pic_1.png)
+   - Undoing a rebase based off SHA from second portion of code from above
+   ![](pictures/git_int_ch5-6_pic_2.png)
