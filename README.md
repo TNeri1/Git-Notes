@@ -735,3 +735,4 @@ notes/
          - *What Git's actually doing behind the scenes is it does an automatic checkout of `new_feature`, and then it does the regular rebase*
          - **This syntax is ONLY for moving new_feature from some commit in master's history to the current tip of `master`**
             - Rebasing to another point is covered down below in the notes
+   - ![](pictures/git_int_ch5-2_pic_1.png)
