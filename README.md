@@ -917,3 +917,29 @@ notes/
    ![](pictures/git_int_ch5-8_pic_3.png)
    ![](pictures/git_int_ch5-8_pic_4.png)
    ![](pictures/git_int_ch5-8_pic_5.png)
+
+- **PULL REBASE:**
+   - Fetch from remote, then rebase instead of merging
+   - Keeps history cleaner by reducing merge commits
+   - Only use on local commits not shared to a remote
+   - **EXAMPLES:**
+   - This is how a merge pull works
+   ![](pictures/git_int_ch5-9_pic_1.png)
+      - *Here you would do a git fetch to bring down changes from the remote master and then a merge (or git pull--which is a fetch followed by a merge) then it would create a merge commit to merge in those changes. You would have both their changes and your changes and a merge commit bringing them together. Then you can keep working and throughout your day and add more commits and periodically fetch and merge and so on.*
+   - (Cleaner way) This is how a rebase pull works
+   ![](pictures/git_int_ch5-9_pic_2.png)
+      - *This basically says: Take my changes, and as the timeline advances, just keep moving my changes further down the timeline*
+   - **HOW TO:**
+      - ```sh
+         git pull --rebase
+         git pull -r
+
+         # Preserve locally created merge 
+         # commits and not flatten them
+         git pull --rebase=preserve
+
+         # Like last section
+         git pull --rebase=interactive
+        ```
+      - Refer to link **VERY IMPORTANT**:
+      [Link to video](https://www.linkedin.com/learning/git-intermediate-techniques/pull-rebase?autoplay=true&resume=false&u=0)
