@@ -799,3 +799,21 @@ notes/
          git rebase --abort
         ```
    ![](pictures/git_int_ch5-4_pic_1.png)
+
+- **REBASE ONTO OTHER BRANCHES:**
+   ![](pictures/git_int_ch5-1_pic_5.png)
+   - **HOW TO:**
+      - ```sh
+         # git rebase --onto [newbase] [upstream] [branch]
+         git rebase --onto master ecommerce new_feature
+        ```
+         - `upstream` is basically saying if you travel upstream, *how far should you go until you stop picking up commits?* *At what point did you branch off something else?*
+            - (AKA) *Gather up the commits since the new_feature branch diverged from the ecommerce branch, then replay those commits as if they were based off the current tip of the master branch*
+   - Create the scenario for rebasing
+   ![](pictures/git_int_ch5-5_pic_3.png)
+   - Illustration of where we are
+   ![](pictures/git_int_ch5-5_pic_1.png)
+   - Illustation of what we want to do
+   ![](pictures/git_int_ch5-5_pic_2.png)
+   - Rebasing showing both rebasing expenses to master and back to original placement
+   ![](pictures/git_int_ch5-5_pic_4.png)
