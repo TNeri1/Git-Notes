@@ -888,3 +888,32 @@ notes/
          git rebase -i HEAD~3
         ```
          - The above code allows you to edit commits without moving them, to a new merge base. Instead of providing a branch name as the upstream branch, instead you're providing HEAD and the tilde (~) and the number 3. *This is saying, use the merge base that is three commits back from the current head* The example above is telling Git to pick up the last three commits, and then rebase them to the exact same place, while giving you an opportunity to edit them. **This is a powerful tool that allwos you to edit the commits you've made, to edit the history. REMEMBER, this is DESTRUCTIVE. This is useful if you want to clean up some commits that you just made locally and HAVE NOT shared with anyone else yet (THE GOLDEN RULE)**
+
+- **SQUASH COMMITS:**
+   - Means folding two or more commits into one
+   - Two directives:
+      - `squash`: combine change sets, concatenate messages
+      - `fixup`: (A variation on `squash`) combine change sets, discard this message
+   - If commits have more than one author, `squash` uses the first author in the commit series
+   - **EXAMPLE:**
+      - ```sh
+         # This squash (on second line) tells that 
+         # commit to be squashed into the commit
+         # above it
+         pick     81a73ff Redsign
+         squash   b2baf90 Change image sizes
+         fixup    c0261b3 Bug fix to the redesign
+         squash   0f7760e Adjust styles
+         # Third and fourth lines are also going to
+         # be squashed upwards
+        ```
+         - *So in the end when you tell Git rebase togo ahead and proceed ith this to do list, you're going to end up with one single commit because you've either squashed or fixed up all the ones below it. That means that all of thier change sets will be combined. It's also going to combine their commit messages as well.*
+         - What will happend is it will perform the rebase and then it will open up the text editor and say here's the commit messahe and in that file will be three lines: redesign, change images sizes and adjust styles. *It will give you the opportunityt to edit so that you can actually make changes as well.*
+   - Interactive rebasing and squashing commits can be a good way for you to clean up and modify the hitory of commits you've already made.
+   - The first picture is start to end
+   ![](pictures/git_int_ch5-8_pic_1.png)
+   - These pictures are what happened in between commands from the first picture
+   ![](pictures/git_int_ch5-8_pic_2.png)
+   ![](pictures/git_int_ch5-8_pic_3.png)
+   ![](pictures/git_int_ch5-8_pic_4.png)
+   ![](pictures/git_int_ch5-8_pic_5.png)
