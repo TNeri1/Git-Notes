@@ -838,3 +838,53 @@ notes/
    ![](pictures/git_int_ch5-6_pic_1.png)
    - Undoing a rebase based off SHA from second portion of code from above
    ![](pictures/git_int_ch5-6_pic_2.png)
+
+- **INTERACTIVE REBASING:**
+   - Chance to modify commits as they are being replayed
+   - Opens the git-rebase-todo file for editing
+   - Can reorder or skip commits
+   - Can edit commit contents
+      - *Basically saying: Git, tell me what you plan to do, and let me give you input on how you go about that task*
+   - **Interactive Rebase Choices:**
+      - pick, drop
+         - *Use or not use commit*
+      - reword, edit
+         - *Use it, but want to stop and reword the commit message OR edit/amend, the contents of the commit*
+      - squash, fixup
+         - *Learn about those later*
+         - *Allows you to take different commits and squash them together into one*
+      - exec
+         - *Short for 'execute'*
+         - *Runs a command from the command line shell*
+   - **HOW TO:**
+      - ```sh
+         # Interactive Rebase
+         git rebase -i master new_feature
+        ```
+      - Rebasing with interactive option
+      ![](pictures/git_int_ch5-7_pic_1.png)
+      - What the interactive option produces
+      ![](pictures/git_int_ch5-7_pic_2.png)
+      - Type reword instead of pick
+      ![](pictures/git_int_ch5-7_pic_3.png)
+      - Git pulls up another file
+      ![](pictures/git_int_ch5-7_pic_4.png)
+      - Edit the file with update: "Add a file for expenses" instead of "Add file for expenses"
+      ![](pictures/git_int_ch5-7_pic_5.png)
+      - Result after finishing interactive mode. See that the result of the commit message has changed with an added "a"
+      - *This is useful when you have many commits, when you're not just moving one, but moving a bunch of commits around.*
+      ![](pictures/git_int_ch5-7_pic_6_new.png)
+      - Look at new results
+      ![](pictures/git_int_ch5-7_pic_7.png)
+      - Interactive again
+      ![](pictures/git_int_ch5-7_pic_8.png)
+      - Change the word pick to edit
+      ![](pictures/git_int_ch5-7_pic_9.png)
+      - Continue on rebasing until done
+      ![](pictures/git_int_ch5-7_pic_10.png)
+      - ```sh
+         # Rebase last 3 commits onto the same branch
+         # but with the opportunity to modify them
+         git rebase -i HEAD~3
+        ```
+         - The above code allows you to edit commits without moving them, to a new merge base. Instead of providing a branch name as the upstream branch, instead you're providing HEAD and the tilde (~) and the number 3. *This is saying, use the merge base that is three commits back from the current head* The example above is telling Git to pick up the last three commits, and then rebase them to the exact same place, while giving you an opportunity to edit them. **This is a powerful tool that allwos you to edit the commits you've made, to edit the history. REMEMBER, this is DESTRUCTIVE. This is useful if you want to clean up some commits that you just made locally and HAVE NOT shared with anyone else yet (THE GOLDEN RULE)**
