@@ -1001,3 +1001,25 @@ notes/
          git annotate filename.txt
         ```
       - [Link to video](https://www.linkedin.com/learning/git-intermediate-techniques/blame?autoplay=true&resume=false&u=0)
+
+- **BISECT:**
+   - Allows you to find the commit that introduced a bug or regression
+      - Use when you know that there's a problem in a particular version and you know that there didn't use to be that problem
+   - Mark last good revision and first bad revision
+      - Bisect will help automate a process to help you figure out where in between those did things go wrong
+   - Reset code to mid-point
+   - Mark as good or bad revision
+   - Repeat
+   - **HOW TO:**
+      - ```sh
+         git bisect start
+
+         # Treeish --> Can be a branch name, SHA, tag, or blank
+         git bisect bad <treeish> 
+
+         git bisect good <treeish>
+
+         # When done or you want to exit out
+         git bisect reset
+        ```
+   - ![](pictures/git_int_ch6-3_pic_1.png)
